@@ -318,6 +318,14 @@
             <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
+
+        {{#hasHttpSignatureMethods}}
+        <dependency>
+            <groupId>org.tomitribe</groupId>
+            <artifactId>tomitribe-http-signatures</artifactId>
+            <version>${http-signature-version}</version>
+        </dependency>
+        {{/hasHttpSignatureMethods}}
     </dependencies>
     <properties>
         <java.version>{{#supportJava6}}1.6{{/supportJava6}}{{^supportJava6}}{{#java8}}1.8{{/java8}}{{^java8}}1.7{{/java8}}{{/supportJava6}}</java.version>
@@ -336,6 +344,9 @@
         {{/threetenbp}}
         <javax-annotation-version>1.3.2</javax-annotation-version>
         <junit-version>4.13</junit-version>
+        {{#hasHttpSignatureMethods}}
+        <http-signature-version>1.5</http-signature-version>
+        {{/hasHttpSignatureMethods}}
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 </project>

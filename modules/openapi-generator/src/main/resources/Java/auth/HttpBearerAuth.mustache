@@ -4,8 +4,11 @@ package {{invokerPackage}}.auth;
 
 import {{invokerPackage}}.Pair;
 
+import {{invokerPackage}}.ApiException;
+
 import java.util.Map;
 import java.util.List;
+import java.net.URI;
 
 {{>generatedAnnotation}}
 public class HttpBearerAuth implements Authentication {
@@ -35,7 +38,7 @@ public class HttpBearerAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams, String payload, String method, URI uri) throws ApiException {
     if(bearerToken == null) {
       return;
     }
